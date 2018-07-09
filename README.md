@@ -1,2 +1,5 @@
 # leetcode
-leetcode for daily practice
+[leetcode](https://leetcode.com/) for daily practice! 
+
+
+
