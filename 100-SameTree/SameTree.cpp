@@ -121,16 +121,16 @@ bool testIsSameTree(int* A1, int n1, int* A2, int n2)
 
 int main(void)
 {
-    int A1[] = {1, 2, 3};
-    int A2[] = {1, 2, 3};
+    int A1[] = {1, 2, 0, 3, 0, 0, 2, 0, 3};
+    int A2[] = {1, 2, 0, 3, 0, 0, 2, 0, 3};
     assert(testIsSameTree(A1, countof(A1), A2, countof(A2)) == true);
 
     int A3[] = {1, 2};
     int A4[] = {1, 0, 2};
     assert(testIsSameTree(A3, countof(A3), A4, countof(A4)) == false);
 
-    int A5[] = {1, 2, 1};
-    int A6[] = {1, 1, 2};
+    int A5[] = {1, 2, 0, 0, 1};
+    int A6[] = {1, 1, 0, 0, 2};
     assert(testIsSameTree(A5, countof(A5), A6, countof(A6)) == false);
     return 0;
 }
