@@ -24,6 +24,11 @@ class Solution
     public:
         int majorityElement(std::vector<int>& nums)
         {
+            return majorityElementByBoyerMooreVote(nums);
+        }
+
+        int majorityByMap(std::vector<int>& nums)
+        {
             std::map<int, int> mapVal2Count;
             int majTimes = nums.size() / 2;
             int majElement = 0;
@@ -43,6 +48,28 @@ class Solution
             }
             return majElement;
         }
+
+        int majorityElementByBoyerMooreVote(std::vector<int>& nums)
+        {
+            int vote = 0;
+            int maj = 0;
+            for (size_t i = 0; i < nums.size(); ++i)
+            {
+                if (vote == 0)
+                {
+                    maj = nums[i];
+                }
+                if (maj == nums[i])
+                {
+                    ++vote;
+                }
+                else
+                {
+                    --vote;
+                }
+            }
+            return maj;
+        }
 };
 
 void testMajorityElement()
@@ -51,8 +78,10 @@ void testMajorityElement()
     int A2[] = {2,2,1,1,1,2,2};
     std::vector<int> num1(std::begin(A1), std::end(A1));
     std::vector<int> num2(std::begin(A2), std::end(A2));
-    assert(Solution().majorityElement(num1) == 3);
-    assert(Solution().majorityElement(num2) == 2);
+
+    Solution s;
+    assert(s.majorityElement(num1) == 3);
+    assert(s.majorityElement(num2) == 2);
 }
 
 int main()
