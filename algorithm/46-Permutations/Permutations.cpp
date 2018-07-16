@@ -62,7 +62,6 @@ class Solution {
                     }
                     std::swap(nums[i], nums[start]);
                 }
-
             }
             return result;
         }
