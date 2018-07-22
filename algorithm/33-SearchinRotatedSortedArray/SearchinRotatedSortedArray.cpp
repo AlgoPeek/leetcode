@@ -29,12 +29,18 @@ class Solution
             int pivot = findPivot(nums);
             if (pivot != -1)
             {
-                int pos = binarySearch(nums, 0, pivot - 1, target);
-                if (pos == -1)
+                if (target >= nums[0] && target <= nums[pivot - 1])
                 {
-                    pos = binarySearch(nums, pivot, nums.size() - 1, target);
+                    return binarySearch(nums, 0, pivot - 1, target);
                 }
-                return pos;
+                else if (target >= nums[pivot] && target <= nums[nums.size() - 1])
+                {
+                    return binarySearch(nums, pivot, nums.size() - 1, target);
+                }
+                else
+                {
+                    return -1;
+                }
             }
             else
             {
