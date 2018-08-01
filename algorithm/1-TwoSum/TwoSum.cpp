@@ -27,36 +27,35 @@ public:
         std::map<int, int> viMap;
         for (size_t i = 0; i < nums.size(); ++i)
         {
-            int val = nums[i];
+            int val = target - nums[i];
             std::map<int, int>::iterator it = viMap.find(val);
             if (it != viMap.end())
             {
-                result.push_back(it->second + 1);
-                result.push_back(i + 1);
+                result.push_back(it->second);
+                result.push_back(i);
                 break;
             }
             else
             {
-                viMap.insert(std::make_pair(target - val, i));
+                viMap.insert(std::make_pair(nums[i], i));
             }
         }
         return result;
     }
 };
 
-void testTwoSumCase(int* A, int n, int target)
+void testTwoSum()
 {
-    std::vector<int> nums(A, A + n);
-    std::vector<int> result = Solution().twoSum(nums, target);
-    assert(result.size() == 1);
-    assert(result[0] == 1);
-    assert(result[1] == 2);
+    int A[] = {2, 7, 11, 15};
+    std::vector<int> nums(std::begin(A), std::end(A));
+    std::vector<int> result = Solution().twoSum(nums, 9);
+    assert(result.size() == 2);
+    assert(result[0] == 0);
+    assert(result[1] == 1);
 }
 
 int main()
 {
-    int A[] = {2, 7, 11, 15};
-    int target = 9;
-    testTwoSumCase(A, sizeof(A) / sizeof(int), target);
+    testTwoSum();
     return 0;
 }
