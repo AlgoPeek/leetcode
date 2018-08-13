@@ -77,8 +77,7 @@ class Solution
         {
             std::vector<std::string> result;
             int pos = 0;
-            int len = str.size();
-            for (int i = 0; i < len; ++i)
+            for (int i = 0, len = str.size(); i < len; ++i)
             {
                 if (str[i] == ' ')
                 {
