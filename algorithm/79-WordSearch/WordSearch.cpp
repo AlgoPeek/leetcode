@@ -65,8 +65,7 @@ class Solution
 
             int n = board.size();
             int m = board[0].size();
-            if (i < 0 || i >= n
-                    || j < 0 || j >= m)
+            if (i < 0 || i >= n || j < 0 || j >= m)
             {
                 return false;
             }
