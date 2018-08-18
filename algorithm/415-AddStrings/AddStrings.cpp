@@ -30,13 +30,11 @@ class Solution
                 int s = carry;
                 if (i >= 0)
                 {
-                    s += num1[i] - '0';
-                    --i;
+                    s += num1[i--] - '0';
                 }
                 if (j >= 0)
                 {
-                    s += num2[j] - '0';
-                    --j;
+                    s += num2[j--] - '0';
                 }
                 carry = s / 10;
                 s %= 10;
