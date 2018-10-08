@@ -57,23 +57,22 @@ class Solution {
             level.push_back(root);
             while (!level.empty()) {
                 std::vector<TreeLinkNode*> curr;
-                for (size_t i = 0, len = level.size(); i < len; ++i) {
+                curr.swap(level);
+                for (size_t i = 0, len = curr.size(); i < len; ++i) {
                     if (i == len - 1) {
-                        level[i]->next = NULL;
+                        curr[i]->next = NULL;
                     }
                     else {
-                        level[i]->next = level[i+1];
+                        curr[i]->next = curr[i+1];
                     }
 
-                    if (level[i]->left != NULL) {
-                        curr.push_back(level[i]->left);
+                    if (curr[i]->left != NULL) {
+                        level.push_back(curr[i]->left);
                     }
                     if (level[i]->right != NULL) {
-                        curr.push_back(level[i]->right);
+                        level.push_back(curr[i]->right);
                     }
                 }
-                level.clear();
-                level.swap(curr);
             }
         }
 };
