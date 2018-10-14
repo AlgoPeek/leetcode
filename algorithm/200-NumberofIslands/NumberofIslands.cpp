@@ -65,7 +65,7 @@ public:
     }
 };
 
-void testNumIslands() {
+void testNumIslandsCase1() {
     std::vector<std::vector<char>> grid;
     grid.push_back(std::vector<char>({'1', '1', '1', '1', '0'}));
     grid.push_back(std::vector<char>({'1', '1', '0', '1', '0'}));
@@ -77,7 +77,19 @@ void testNumIslands() {
     assert(result == 1);
 }
 
+void testNumIslandsCase2() {
+    std::vector<std::vector<char>> grid;
+    grid.push_back(std::vector<char>({'1','1','1'}));
+    grid.push_back(std::vector<char>({'0','1','0'}));
+    grid.push_back(std::vector<char>({'1','1','1'}));
+
+    Solution s;
+    int result = s.numIslands(grid);
+    assert(result == 1);
+}
+
 int main() {
-    testNumIslands();
+    testNumIslandsCase1();
+    testNumIslandsCase2();
     return 0;
 }
