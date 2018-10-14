@@ -6,11 +6,11 @@ import (
 )
 
 func buildList(array []int) *ListNode {
-    head := ListNode {
+    fakeHead := ListNode {
         Val: 0,
         Next: nil,
     }
-    curr := &head
+    curr := &fakeHead
     for _, val := range array {
         curr.Next = &ListNode {
             Val: val,
@@ -18,7 +18,7 @@ func buildList(array []int) *ListNode {
         }
         curr = curr.Next
     }
-    return head.Next
+    return fakeHead.Next
 }
 
 func convertToArray(head *ListNode) []int {
